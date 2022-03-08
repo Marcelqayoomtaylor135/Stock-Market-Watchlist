@@ -1,0 +1,107 @@
+Pseudocode For GatherCompanyStats Function
+
+Function Name: GatherCompanyStats
+Parameters: CompanySymbol
+Parameter types: Text
+
+BEGIN
+  READ companySymbol
+  READ timeFrame
+  url = (API.URL) + companySymbol // API.URL refers to the websites url
+  RequestPage(url, err, body)
+    IF err = True THEN
+      PRINT "Data Could not be fetched"
+    ELSE
+      data = ReadData(body) 
+        IF data = undefined THEN  
+          PRINT ("No data found for that company")
+        ELSE
+          PRINT "Data found"
+          results = {
+            open (int) = data.open[timeFrame]
+            high (int) = data.high[timeFrame]
+            low (int) = data.low[timeFrame]
+            close (int) = data.close[timeFrame]
+            volume (int) = data.volume[timeFrame]
+          }  
+          RenderCompanyPage(results)
+END
+
+app.get('/companies/:companysymbol', function (req, res) {
+  var companysymbol = req.params.companysymbol;
+  var url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + companysymbol + '&apikey=' + apiKey;
+
+      //console.log(url)
+
+  request(url, function(err, response, body){
+    if(err){ // If error exists
+      console.log("Data could not be fetched");
+      res.render('company', {
+          data: null,
+          error: 'Error, please try again'
+        }
+      );
+    }
+
+    else{
+      var data = JSON.parse(body); // creates a variable called data that contains all of the data from the api. PARSE means reading, JSON is the function, Body is the data. I feel like this is the issue
+
+      // nothing can be found
+      if(data == undefined){ 
+        console.log("No data found for that company");
+
+        res.render('company', {
+            data: null,
+            error: 'That data could not be found. Please try again.'
+          }
+        );
+      }
+
+      else{ // nothings gone wrong therefore data found
+        console.log("Data found"); // WORKS
+        console.log(data)
+
+        var open = data["Time Series (Daily)"]["2020-02-06"]["1. open"];
+
+        var high = data["Time Series (Daily)"]["2020-02-06"]["2. high"];
+
+        var low = data["Time Series (Daily)"]["2020-02-06"]["3. low"];
+
+        var close = data["Time Series (Daily)"]["2020-02-06"]["4. close"];
+
+        var volume = data["Time Series (Daily)"]["2020-02-06"]["5. volume"];
+  
+
+        res.render('company', {
+          companysymbol: companysymbol,
+          open: open,
+          high: high,
+          low: low,
+          close: close,
+          volume: volume,
+          error: null
+        });
+
+      }
+    }  
+        
+
+  });
+
+
+  
+});
+
+
+
+App.get...{
+  RenderPage(){
+    render.page...
+  }
+
+}
+
+GetDataFunction(
+  RenderPage()
+)
+

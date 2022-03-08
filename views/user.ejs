@@ -1,0 +1,66 @@
+<html>
+  <head>
+
+		<%- include ("partials/dashboardHead") %>
+
+  </head>
+  <body>
+
+		<%- include ("partials/dashboardMenu") %>
+
+			<div class="main_container">
+				<div class="item">
+					<div class="userContainer">
+						<h2>Username: <%= user %></h2><br><br>
+						
+						<h2>Reset Password: </h2><br>
+						<form action="/changePassword" method="post">
+							<input class="passwordEntry" type="password" name="currentPassword" id="password" placeholder="Current password"><span><i class="fas fa-eye" id="togglePassword"></i></span><br><br>
+
+							<input class="newPasswordEntry" type="password" name="newPassword" id="password2" placeholder="New password"><span><i class="fas fa-eye" id="togglePassword2"></i></span><br><br>
+							<button type="submit">Reset Password</button>
+						</form>
+						<p style="color:red;"><%= error %></p>
+						<p style="color:green;"><%= success %></p>
+					</div>
+				</div>
+		
+			</div> 
+
+	</div> <!-- dashboardMenu final div (wrapper) -->
+
+
+
+  </body>
+
+<script>
+
+<%- include ("partials/frontEndJS") %>
+
+	const togglePassword = document.querySelector('#togglePassword');
+	const password = document.querySelector('#password');
+
+	togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+
+	const togglePassword2 = document.querySelector('#togglePassword2');
+	const password2 = document.querySelector('#password2');
+
+	togglePassword2.addEventListener('click', function (i) {
+    // toggle the type attribute
+    const type = password2.getAttribute('type') === 'password' ? 'text' : 'password';
+    password2.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+
+</script>
+
+</html>
+
+

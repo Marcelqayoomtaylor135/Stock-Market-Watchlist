@@ -1,0 +1,157 @@
+<html>
+  <head>
+		<%- include ("partials/dashboardHead") %>
+  </head>
+  <body>
+
+	<%- include ("partials/dashboardMenu") %>
+
+		<div class="main_container">
+			<div class="item">
+				<div class="itemBanner">
+					<h2 class="companyName"><%= companyName %> (<%= companySymbol %>)</h2> 
+				</div>
+					
+				<div class="chartCanvas"> 
+					<canvas id="myChart"></canvas>
+				</div>
+
+				<div class="statContainer">
+					<div class="leftStatContainer">
+						<ul>
+							<li>
+								<span class="title"><p>Current: <%= close %></p><div class="tooltip"><i class="far fa-question-circle" id="tooltip"></i><h4 class="tooltipText">Current is the price of the stock right now, or when the market last closed</h4></div></span>
+							</li>
+							<li>
+								<span class="title"><p>Open: <%= open %></p><div class="tooltip"><i class="far fa-question-circle" id="tooltip"></i><h4 class="tooltipText">Open is the price the stock when the market opened for the day</h4></div></span>
+							</li>
+							<li>
+								<span class="title"><p>Change: <i id="change"><%= change %></i></p><div class="tooltip"><i class="far fa-question-circle" id="tooltip"></i><h4 class="tooltipText">Change is the difference between the current price and the previous close</h4></div></span>
+							</li>
+						</ul>
+					</div>
+					<div class="rightStatContainer">
+						<ul>
+							<li>
+								<span class="title"><p>High: <%= high %></p><div class="tooltip"><i class="far fa-question-circle" id="tooltip"></i><h4 class="tooltipText">High is the highest price that the stock has reached today</h4></div></span>
+							</li>
+							<li>
+								<span class="title"><p>Low: <%= low %></p><div class="tooltip"><i class="far fa-question-circle" id="tooltip"></i><h4 class="tooltipText">Low is the lowest price that the stock has reached today</h4></div></span>
+							</li>
+							<li>
+								<span class="title"><p>Volume: <%= volume %></p><div class="tooltip"><i class="far fa-question-circle" id="tooltip"></i><h4 class="tooltipText">Volume is the number of shares traded so far today</h4></div></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="buttonLayer">
+					<div class="graphOptions">
+						<p>Graph Ranges:</p>
+						<div class="rangeTabs">
+							<% for( var i = 0; i < ranges.length; i++){ %>
+								<form action="/graphData/<%= ranges[i] %>" method="post">
+									<button type="submit"><%= ranges[i]%></option>
+									<input type="hidden" name="companySymbol" value="<%= companySymbol %>"/>
+								</form>
+							<% } %> 				
+						</div>
+					</div>
+					<div class="addToWatchlist">
+						<form action="/addStock/<%= companySymbol %>" method="post">
+							<button type="submit" class="watchlistButton">Add to Watchlist</button>
+						</form>
+					</div>
+				</div>
+				<!--<button onclick="goBack()">Back</button>-->
+			</div>
+		</div>
+  </body>
+
+	<script>
+
+		<%- include ("partials/frontEndJS") %>
+
+		function goBack() {
+			window.history.back();
+		}
+
+		function setSign (){
+				
+				var changeElement = document.getElementById("change");
+				var change = document.getElementById("change").innerHTML;
+
+				for (var a = 0; a < change.length; a++) {
+					if (change[0] == "-"){
+						changeElement.style.color = "red";
+					} else {
+						changeElement.style.color = "green";
+					}
+				}
+
+		}
+			setSign();
+
+		var ctx = document.getElementById('myChart').getContext('2d');
+		
+
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+			
+			// The data for our dataset
+			data: {
+					labels: <%- JSON.stringify(dates) %>,
+					datasets: [{
+							label: <%- JSON.stringify(chartLabel) %> + " (" + <%- JSON.stringify(companySymbol) %> + ")" + "   (Range: " + <%- JSON.stringify(selectedRange) %> + ")",
+							data: <%- JSON.stringify(prices) %>,
+							pointRadius: 0,
+							backgroundColor: 'rgb(255, 99, 132)',
+							borderColor: 'rgb(255, 99, 132)',
+							fill: false,
+
+					}]
+			},
+
+			// Configuration options go here
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				tooltips: {
+					mode: 'index',
+					intersect: false,
+					pointRadius: 5,
+    		},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+
+   			 },
+				scales: {
+					xAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: <%- JSON.stringify(rangeLabel) %>,
+						}
+					}],
+					yAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Price',
+						},
+					}]
+				},
+        elements: {
+            line: {
+                tension: 0 // disables bezier curves
+            }
+        }
+
+			}
+		});
+
+	</script>
+
+</html>

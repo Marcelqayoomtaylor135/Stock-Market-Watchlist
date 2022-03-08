@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<%- include ("partials/frontEndHead") %>
+  </head>
+  <body>
+    <script src="script.js"></script>
+
+		<%- include ("partials/frontEndBanner") %>
+    
+    <div class="aboutSync">
+      <div class="container">
+        <h1>Contact</h1>
+        <br>
+        <div class="contactform">
+          <form>
+            First name:<br>
+            <input type="text" name="firstname" required><br>
+            Last name:<br>
+            <input type="text" name="lastname" required><br>
+            Email:<br>
+            <input type="text" name="Email" required><br>
+            Message:<br>
+            <textarea name="message" class="Message" rows="10" cols="40"></textarea><br>
+          <a href="/contact">
+          <button type="submit" class="sendsignup" required onClick="parent.location='/'">Send</button><br>
+          </a>
+          </form>
+        </div>   
+      </div>
+    </div>
+
+    <footer>   
+			<%- include ("partials/frontEndFooter") %>
+    </footer>
+
+    </div> 
+
+  </body>
+</html>

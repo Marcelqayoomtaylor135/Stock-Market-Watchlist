@@ -1,0 +1,682 @@
+/* The style.css file is the css code for all the pages before the user logs in  */
+
+/* Imports a font*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap');
+
+body {
+	margin: 0;
+}
+
+body a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body a, a:visited, a:hover, a:active {
+  color: inherit;
+}
+
+body a:hover {
+  color: #4dbd90;
+  
+}
+
+/* Start of landing.ejs css */
+
+#Banner{
+    text-align: center;
+    background-color:#ebebeb;
+    height:5em;
+    width:100%;
+    position: sticky;
+}
+
+#Banner a{
+	text-decoration: none;
+}
+
+.logo{
+	color: black;
+	float: left;
+	padding-top: 0.85em;
+	padding-bottom: 0.85em;
+	font-size: 28px;
+	font-family: "Ubuntu", "sans-serif";
+}
+
+#pages{
+	height: 100%;
+	margin: 0;
+	padding-left: 30em;
+	padding-right: 30em;
+}
+
+#pages a:hover{
+  color: #4dbd90;
+}
+
+.menuItem{
+	color: black;
+	float: right;
+	padding-top: 1.42em;
+	padding-bottom: 1.42em;
+	font-size: 20px;
+	font-family: "Tahoma";
+	padding-left: 0.75em;
+	padding-right: 0.75em;
+}
+
+@media screen and (max-width: 1600px) {
+  #pages{
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+  
+  .menuItem {
+    float: right;
+  }
+
+}
+
+.bannerLogin{
+  padding-right: 3em;
+}
+
+.bannerLogin a:hover{
+  color: #4dbd90;
+}
+
+.signupMenuButton{
+    color: black;
+    float: right;
+    padding-top: 2.1em;
+    padding-bottom: 2.1em;
+    font-size: 14px;
+    font-family: "Tahoma";
+    padding-left: 0.75em;
+    padding-right: 0.75em;  
+}
+
+.loginMenuButton{
+    color: black;
+    float: right;
+    padding-top: 2.1em;
+    padding-bottom: 2.1em;
+    font-size: 14px;
+    font-family: "Tahoma";
+    padding-left: 0.75em;
+    padding-right: 0.75em;  
+}
+
+
+.slideshow{
+	width: 100%;
+    height: 35em;
+    background-color: #4dbd90;
+    display: block;
+}
+
+.slideshow button:hover{
+	cursor:pointer;
+}
+
+.row {
+  padding-top: 4em;
+  padding-bottom: 12.2em;
+  padding-left: 30.3em;
+  padding-right: 30.3em;
+}
+
+@media screen and (max-width: 1700px) {
+  .slideshow {
+    height: auto;
+  }
+  .row{
+    height: auto;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 10%;
+  }
+
+}
+
+
+.row h1 {
+  color: white;
+  font-family: "Tahoma";
+  font-weight: 600;
+}
+
+.row h3 {
+  color: white;
+  font-family: "Tahoma";
+  font-weight: 200;
+}
+
+.column1 {
+  float: left;
+  padding: 0.5em;
+  height: 20em;
+  width: 25em;
+}
+
+
+@media screen and (max-width: 1700px) {
+ .column1{
+   width: 50%;
+   padding: 0;
+  }
+}
+
+
+.colButtons {
+  padding-top: 1.4em;
+}
+
+.colSignUp {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-family: "Tahoma";
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s; 
+}
+
+.colSignUp:hover {
+  background-color: #489fd9; 
+  color: white;
+}
+
+.colLearnMore {
+  background-color: transparent;
+  border: 2px solid black;
+  color: black;
+  padding: 8px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-family: "Tahoma";
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s; 
+  margin-left: 0.5em;
+}
+
+.colLearnMore:hover {
+  background-color: #489fd9; 
+  color: white;
+}
+
+.column2 {
+  float: right;
+  height: 21em;
+  width: 30em;
+}
+
+
+.column2 img {
+  max-width:100%;
+  max-height:100%;
+	padding-top: 2em;
+}
+
+@media screen and (max-width: 1700px) {
+  .column2 {
+    width: 50%;
+    padding: 0;
+  }
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.sync {
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  padding-left: 30.3em;
+  padding-right: 30.3em;
+  padding-top: 3em;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+  .loginContainer {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+
+    .loginContainer {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+
+  .loginContainer p {
+    padding-left: 20%;
+  }
+}
+
+
+@media screen and (max-width: 1600px) {
+  .container {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+}
+
+.container h1 {
+  font-family: "Tahoma";
+  text-align: center;
+  font-weight: 500;
+}
+
+.container h3 {
+  font-family: "Tahoma";
+  color: grey;
+  text-align: center;
+  font-weight: 200;
+}
+
+
+.loginContainer {
+  padding-left: 30.3em;
+  padding-right: 30.3em;
+  padding-top: 3em;
+	text-align: center;
+}
+
+
+.loginContainer p{
+	width: 100%;
+  display: inline-block;
+	text-align: center; 
+
+}
+
+.loginContainer form{
+	width: 100%;
+}
+
+.loginContainer i{ 
+	margin-left: -30px;
+}
+
+.loginContainer i:hover{ 
+	cursor: pointer;
+}
+
+.loginContainer h1 {
+  font-family: "Tahoma";
+  text-align: center;
+	width: 100%;
+  font-weight: 500;
+}
+
+.loginContainer h3 {
+  font-family: "Tahoma";
+  color: grey;
+  text-align: center;
+  font-weight: 200;
+	width: 100%;
+}
+
+.loginContainer  {
+	text-align: center; 
+}
+
+.syncRow1 {
+  width: 100%;
+  margin-top: 5em;
+}
+
+.syncCol1 {
+  float: left;
+  padding: 0.5em;
+  height: 16em;
+  width: 46%;
+}
+
+.syncCol1 img {
+  max-width:100%;
+  max-height:100%;
+}
+
+.syncCol2 {
+  float: right;
+  padding: 0.5em;
+  height: 16em;
+  width: 46%;
+}
+
+.syncCol2 h3 {
+  float: left;
+  color: black;
+  font-weight: 600;
+  font-family: "Tahoma";
+  font-size: 20px;
+  margin-top: 2.3em;
+  margin-bottom: 0;
+  position: absolute;
+}
+
+
+.syncCol2 p {
+  float: left;
+  color: black;
+  font-family: "Tahoma";
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 3.5em;
+}
+
+.syncCol2 img {
+  width: 2em;
+  height: 2em;
+  float: left;
+}
+
+.syncRow1:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.syncRow2 {
+  width: 100%;
+  margin-top: 5em;
+}
+
+.syncCol3 {
+  float: left;
+  padding: 0.5em;
+  height: 16em;
+  width: 46%;
+}
+
+.syncCol3 h3 {
+  float: left;
+  color: black;
+  font-weight: 600;
+  font-family: "Tahoma";
+  font-size: 20px;
+  margin-top: 2.5em;
+  margin-bottom: 0;
+  position: absolute;
+}
+
+.syncCol3 p {
+  float: left;
+  color: black;
+  font-family: "Tahoma";
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 3.5em;
+}
+
+.syncCol3 img {
+  width: 1.5em;
+  height: 2.5em;
+  float: left;
+}
+
+.syncCol4 {
+  float: right;
+  padding: 0.5em;
+  height: 16em;
+  width: 46%;
+}
+
+.syncCol4 img {
+  max-width:100%;
+  max-height:100%;
+}
+
+.syncRow2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.pricing {
+  width: 100%;
+  height: 43em;
+  padding-top: 4em;
+  padding-bottom: 4em;
+  background-color: #dde7ed;
+  margin-top: 7em;
+}
+
+@media screen and (max-width: 1800px) {
+  .pricing {
+    height: auto;
+  }
+}
+
+.pricing h1 {
+  font-family: "Tahoma";
+  text-align: center;
+  font-weight: 500;
+  padding-bottom: 0.5em;
+}
+
+.pricing h3 {
+  font-family: "Tahoma";
+  text-align: center;
+  font-weight: 400;
+}
+
+.pricingcontainer {
+  height: 100%;
+  padding-bottom: 5%;
+}
+
+.pricingcolumns {
+  text-align: center;
+}
+
+.pricingcolumns button:hover{
+	cursor:pointer;
+}
+
+.columncontainer {
+  margin-top: 4em;
+  padding-left: 2em;
+  padding-right: 2em;
+  width: 12em;
+  height: 25em;
+  display: inline-block;
+}
+
+.planwrapper {
+  background-color: white;
+  height: 100%;
+}
+
+.planwrapper h3 {
+  padding-top: 1em;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.planwrapper h4 {
+  font-family: "Tahoma";
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.planwrapper p {
+  font-family: "Tahoma";
+  text-align: center;
+  font-weight: 400;
+  font-size: 15px;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+}
+
+.planwrapper hr {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.planwrapperbutton {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 8px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: "Tahoma";
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s; 
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.planwrapperbutton:hover {
+  background-color: #4dbd90; 
+  color: white;
+}
+
+footer {
+	background-color: #ebebeb;
+	color: black;
+	list-style: none;    
+	height: 20em;
+}
+
+.footercolumncontainer {
+  margin-left: 25%;
+  margin-right: 25%;
+  height: 100%;
+}
+
+.footercolumncontainer h2 {
+  margin: 0;
+  font-size: 22px;
+  color: black;
+}
+
+.footercolumncontainer h3 {
+  margin: 0;
+  font-size: 20px;
+  color: black;
+}
+
+.footercolumncontainer h4 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.footercolumncontainer hr {
+  width: 16em;
+  margin-top: 1em;
+  float: left;
+  background-color: black;
+}
+
+.footercol1 {
+  width: 40%;
+  float: left;
+  font-family: "Tahoma";
+  margin-top: 4em;
+}
+
+.footercol2 {
+  width: 60%;
+  float: left;
+  font-family: "Tahoma";
+  margin-top: 4em;
+}
+
+.footercol2 p {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+/* End of Landing.ejs CSS
+
+Start of About.html CSS */
+
+.aboutSync {
+  width: 100%;
+  height: 40em;
+}
+
+/* End of About.html CSS
+
+Start of Login.html & Signup.html CSS */
+
+.loginform {
+    text-align: center;
+    color: black;
+}
+
+.loginform input{
+    width:300px;
+    height: 40px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.loginform input[type=text] {
+    border: 2px solid grey;
+    border-radius: 4px;
+}
+
+.submitButton{
+    overflow: visible;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 120px;
+    font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    color: #fff;
+    text-transform: uppercase;
+    background: #4dbd90;
+    border-radius: 0 3px 3px 0;      
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+}
+
+/* End of Login.html & Signup.html CSS
+
+Start of Contact.html CSS */
+
+.contactform {
+  text-align: center;
+}
+
+.contactform input{
+    width:300px;
+    height: 40px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.contactform input[type=text] {
+    border: 2px solid grey;
+    border-radius: 4px;
+}
+
+
+/* end of all style.css code */

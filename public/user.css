@@ -1,0 +1,852 @@
+/* The user.css file is the css code for all the pages after the user logs in  */
+
+
+/* Imports a font*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap');
+
+
+* {
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+}
+
+body {
+	background: #dde7ed;
+}
+
+
+li, a, button {
+
+font-family: "Tahoma";
+font-weight: 500;
+font-size: 15px;
+color: #080808;
+text-decoration: none;
+
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px 10%;
+}
+
+.logo {
+	font-family: "Ubuntu", "sans-serif";
+	font-weight: 500;
+	font-size: 1.4em;
+	cursor: pointer;
+
+}
+
+/* Css code for the top banner and sidebar navigation */
+
+.wrapper{
+	margin: 10px;
+}
+
+.hamburger {
+	background-color:  #4dbd90;
+}
+
+.wrapper .top_navbar{
+	width: calc(100% - 20px);
+	height: 60px;
+	display: flex;
+	position: fixed;
+	top: 10px;
+}
+
+.wrapper .top_navbar .hamburger {
+	width: 70px;
+	height: 100%;
+	padding: 15px 17px;
+	border-top-left-radius: 20px;
+	cursor: pointer;
+}
+
+.wrapper .top_navbar .hamburger div {
+	width: 35px;
+	height:4px;
+	background: #fff;
+	margin: 5px 0;
+	border-radius: 5px;
+}
+
+.wrapper .top_navbar .top_menu{
+	width: calc(100% - 70px);
+	background: #fff;
+	height: 100%;
+	border-top-right-radius: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1)
+}
+
+.wrapper .top_navbar .top_menu .logo2 {
+	font-family: "Ubuntu";
+	font-weight: 500;
+	color:  #4dbd90;
+	font-size: 20px;
+	letter-spacing: 3px;
+}
+
+.wrapper .top_navbar .top_menu ul {
+	display: flex;
+}
+
+.wrapper .top_navbar .top_menu ul li a {
+	display: block;
+	margin-right: 10px;
+	padding-top: 20%;
+	width: 35px;
+	height: 35px;
+	line-height: 50px;
+	border: 1px solid  #4dbd90;
+	text-align: center;
+	border-radius: 50%;
+	color:  #4dbd90;
+}
+
+.wrapper .top_navbar .top_menu ul li a:hover{
+	background: #5aca9d;
+	cursor:pointer;
+	color: #fff;
+}
+
+.wrapper .sidebar {
+	position: fixed;
+	top: 70px;
+	left: 10px;
+	background:  #4dbd90;
+	width:200px;
+	height: calc(100% - 80px);
+	border-bottom-left-radius: 20px;
+	transition: all 0.3s ease;
+}
+
+.wrapper .sidebar ul li a, .wrapper .sidebar ul li form button {
+	display: block;
+	padding: 20px;
+	position: relative;
+	margin-bottom: 1px;
+	color: #ebf6f5;
+	white-space: nowrap;
+}
+
+.wrapper .sidebar ul li a:before, .wrapper .sidebar ul li form button:before {
+	content:"";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 3px;
+	height:100%;
+	background:  #4dbd90;
+	display: none;
+}
+
+.wrapper .sidebar ul li a span.icon, .wrapper .sidebar ul li form button span.icon {
+	margin-right: 10px;
+	display: inline-block;
+}
+
+.wrapper .sidebar ul li a span.title, .wrapper .sidebar ul li form button span.title {
+	display: inline-block;
+}
+
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active, 
+.wrapper .sidebar ul li form button:hover, 
+.wrapper .sidebar ul li form button:active {
+	background: #5aca9d;
+	color: #fff;
+}
+
+.wrapper .sidebar ul li a.selected{
+  background: #4dbd90;
+}
+
+.wrapper .sidebar ul li a:hover:before,
+.wrapper .sidebar ul li a.active:before, .wrapper .sidebar ul li form button:hover:before, .wrapper .sidebar ul li form button:active:before  {
+	display: block;
+}
+
+.wrapper .main_container {
+	width: calc(100% - 270px);
+	margin-top: 70px;
+	margin-left: 200px;
+	margin-right: 200px;
+	padding: 15px;
+	transition: all 0.3s ease;
+}
+
+.wrapper .main_container .item {
+	background: #fff;
+	margin-bottom: 10px;
+	padding: 15px;
+	font-size: 14px;
+	line-height: 22px;
+	height: auto;
+	min-height: 90%;
+}
+
+.wrapper.collapse .sidebar {
+	width: 70px;
+}
+
+.wrapper.collapse .sidebar ul li a, .wrapper.collapse .sidebar ul li form button  {
+	text-align: center;
+}
+
+.wrapper.collapse .sidebar ul li a span.icon {
+	margin: 0;
+}
+
+.wrapper.collapse .sidebar ul li form button span.icon{
+	margin: 0;
+}
+
+.wrapper.collapse .sidebar ul li a span.title {
+	display: none;
+}
+
+.wrapper.collapse .sidebar ul li form button span.title{
+	display: none;
+}
+
+.wrapper .sidebar ul li form button {
+	float:left;
+	text-align: left;
+}
+
+.logout_box{
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	cursor:pointer;
+}
+
+.logout_box:hover button.logout_button{
+	color: #fff;
+}
+
+.logout_button{
+	border: none;
+	background: none;
+	font-family: "Tahoma";
+	font-weight: 500;
+	font-size: 15px;
+	color:  #4dbd90;
+	white-space: nowrap;
+	display: block;
+	cursor: pointer;
+	width: 100%;
+	float: left;
+}
+
+.search_bar {
+	height: 35px;
+	border-radius: 40px;
+	border: 1.2px solid  #4dbd90;
+	padding: 10px;
+	background: none;
+}
+
+.search_button {
+	float:right;
+	width: 30px;
+	height: 22px;
+	border-radius: 50%;
+	background: none;
+	border: none;
+	display: flex;
+	justify-content: center;
+	margin-right: 6px;
+	cursor: pointer;
+}
+
+.search_text {
+	background: none;
+	outline: none;
+	float:left;
+	color: black;
+	font-size: 14px;
+	transition: 0.4s;
+	width: 240px;
+	margin-left: 7px;
+	border: none;
+}
+
+.search_button:hover {
+	color: #5aca9d;
+}
+
+.listContainer {
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.wrapper.collapse .listContainer {
+	z-index: -1;
+}
+
+.listContainer td {
+	z-index: -1;
+	text-align: center;
+}
+
+.listContainer td button {
+	background: none;
+	z-index: -1;
+	border: none;
+}
+
+.listContainer button:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.listContainer thead tr th{
+	text-align: center;
+	z-index: -1;
+}
+
+.watchlist {
+	z-index: -1;
+	float:left;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	width: 50%;
+}
+
+.watchlist #listIcon {
+	color: #4dbd90;
+	background: none;
+}
+
+.watchlist #listIcon:hover{
+	cursor:pointer;
+	color: red;
+}
+
+.watchlist td button.removeButton{
+	background: none;
+	border: none;
+}
+
+.watchlist h2 {
+	text-align: center;
+}
+
+.recommendedStocks {
+	z-index: -1;
+	float:left;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	width: 50%;
+}
+
+.recommendedStocks #listIcon {
+	color: #4dbd90;
+	background: none;
+}
+
+.recommendedStocks #listIcon:hover {
+	cursor:pointer;
+	color: #f3f3f3;
+	background-color: #4dbd90;
+}
+
+.addTextBox {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #000;
+	background: none;
+	outline: none;
+	font-size: 16px;
+}
+
+.watchlistTable {
+	border-collapse: collapse;
+	margin: 25px 0;
+	font-size: 0.9em;
+	min-width: 400px;
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba (0,0,0,0.15);
+	font-family: "Tahoma";
+	width: 90%;
+}
+
+.watchlistTable thead tr{
+	background-color: #4dbd90;
+	color: #fff;
+	text-align: left;
+	font-weight: bold;
+}
+
+.watchlistTable thead tr th{
+	letter-spacing: 2px;
+}
+
+.watchlistTable th, .watchlistTable td {
+	padding: 12px 15px;
+}
+
+.watchlistTable tbody tr {
+	border-bottom: 1px solid #dddddd;
+}
+
+.watchlistTable tbody tr:nth-of-type(even) {
+	background-color: #f3f3f3;
+}
+
+.watchlistTable tbody tr:last-of-type {
+	border-bottom: 2px solid #4dbd90;
+}
+
+.watchlistTable tbody tr:hover {
+	font-weight: bold;
+}
+
+.watchlistTitle {
+	background-color: white;
+	color: #000;
+	text-align: center;
+	font-size: 20px;
+	font-family: "Tahoma";
+	margin-bottom: 5px;
+	overflow-x: auto;
+}
+
+.recommendedStocksTable {
+	border-collapse: collapse;
+	margin: 25px 0;
+	font-size: 0.9em;
+	min-width: 400px;
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba (0,0,0,0.15);
+	font-family: "Tahoma";
+	width: 90%;
+}
+
+.recommendedStocksTable thead tr{
+	background-color: #4dbd90;
+	color: #fff;
+	text-align: left;
+	font-weight: bold;
+}
+
+.recommendedStocksTable thead tr th{
+	letter-spacing: 2px;
+}
+
+.recommendedStocksTable th, .recommendedStocksTable td {
+	padding: 12px 15px;
+}
+
+.recommendedStocksTable tbody tr {
+	border-bottom: 1px solid #dddddd;
+}
+
+.recommendedStocksTable tbody tr:nth-of-type(even) {
+	background-color: #f3f3f3;
+}
+
+.recommendedStocksTable tbody tr:last-of-type {
+	border-bottom: 2px solid #4dbd90;
+}
+
+.recommendedStocksTable tbody tr:hover {
+	font-weight: bold;
+}
+
+.watchlist h2, .recommendedStocks h2  {
+	position: relative;
+	font-size: 20px;
+}
+
+.watchlist .tooltip {
+	color: #4dbd90;
+	position: absolute;
+	margin-left: 6%;
+	bottom: 85.5%;	
+	display: inline-block;
+}
+
+.recommendedStocks .tooltip {
+	color: #4dbd90;
+	position: absolute;
+	display: inline-block;
+	margin-left: 10%;
+	bottom: 85.5%;
+}
+
+
+.watchlist .tooltip:hover, .recommendedStocks .tooltip:hover {
+	cursor: pointer;
+	color: #5aca9d;
+}
+
+.watchlist .tooltip .tooltipText {
+	visibility: hidden;
+	width: 315px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+	margin-left: -147px;
+	bottom: 160%;
+  opacity: 0;
+  transition: opacity 0.3s;
+	font-size: 14px;
+}
+
+.recommendedStocks .tooltip .tooltipText {
+	visibility: hidden;
+	width: 315px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+	margin-left: -147px;
+	bottom: 160%;
+  opacity: 0;
+  transition: opacity 0.3s;
+	font-size: 14px;
+}
+
+.watchlist .tooltip .tooltipText::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.recommendedStocks .tooltip .tooltipText::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.watchlist .tooltip:hover .tooltipText{
+	visibility: visible;
+  opacity: 1;
+}
+
+.recommendedStocks .tooltip:hover .tooltipText{
+	visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 1200px) {
+  .recommendedStocks {
+    clear: left;
+		padding-left:70px;
+		width: 100%;
+  }
+	.watchlist{
+		padding-left: 70px;
+		width: 100%;
+	}
+	.recommendedStocks .tooltip{
+		margin-left: 13%;
+		bottom: 12.55%;
+	}
+}
+
+
+
+/* CSS for Company Page */
+
+.itemBanner{
+	text-align:center;
+	margin-top: 10px;
+	padding-bottom: 5em;
+}
+
+.companyName {
+	font-family: "Tahoma";
+	font-weight: 600;
+	font-size: 20px;
+}
+
+.chartCanvas{
+	float: left;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	width: 50%;
+	height: 500px;
+}
+
+.statContainer {
+	float: left;
+	width: 50%;
+	height: 500px;
+}
+
+.statContainer button:hover{
+	background-color: #5aca9d;
+	cursor: pointer;
+}
+
+.leftStatContainer, .rightStatContainer {
+	float: left;
+	padding-bottom: 30px;
+	height:100%;
+	width: 50%;
+	text-align: center;
+}
+
+.leftStatContainer {
+	padding-left: 20px;
+}
+
+.rightStatContainer {
+	padding-right:20px;
+}
+
+.leftStatContainer ul, .rightStatContainer ul {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;	
+}
+
+.leftStatContainer ul li, .rightStatContainer ul li {
+	text-align: center;
+	display: table-row;
+}
+
+.leftStatContainer span, .rightStatContainer span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.leftStatContainer p, .rightStatContainer p {
+	border: 1px solid #000;
+	margin-top: 15%;
+	margin-bottom: 15%;
+	margin-left: 15%;
+	margin-right: 15%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	height:25%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.leftStatContainer i, .rightStatContainer i  {
+	font-style: normal;
+}
+
+.rangeTabs {
+	margin-left: 10%;
+	margin-right: 10%;
+	border: 1px solid #000;
+  background-color: #f1f1f1;
+	display: flex;
+	align-content: center;
+	justify-content: space-evenly;
+	width: 80%;
+	height: 2.3em;
+}
+
+.rangeTabs button{
+	background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 7px 8px;
+  transition: 0.3s;
+}
+
+.rangeTabs button:hover{
+	background-color: #5aca9d;
+	cursor: pointer;
+}
+
+.buttonLayer {
+	width: 100%;
+	display: inline-block;
+}
+
+.graphOptions {
+	float: left;
+	width: 50%;
+	text-align: center;
+}
+
+.graphOptions p{
+	font-family: "Tahoma";
+	font-size: 15px;
+	padding-bottom: 5px;
+}
+
+.addToWatchlist {
+	float: left;
+	width: 50%;
+	margin-top: 1.6em;
+}
+
+.watchlistButton{
+	margin-left: 10%;
+	margin-right: 10%;
+	float: left;
+	width: 80%;
+	text-align: center;
+	background-color: #4dbd90;
+	font-size: 17px;
+	height: 2.3em;
+	color: white;
+	border: none;
+	bottom:1px;
+}
+
+.watchlistButton:hover {
+	background-color: #5aca9d;
+	cursor: pointer;
+}
+
+.tooltip {
+	color: #4dbd90;
+	position: absolute;
+	margin-left: 5%;
+}
+
+.tooltip:hover {
+	cursor: pointer;
+	color: #5aca9d;
+}
+
+.tooltip .tooltipText {
+	visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+	margin-left: -71px;
+	bottom: 160%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltipText::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltipText{
+	visibility: visible;
+  opacity: 1;
+}
+
+/* CSS for search results page */
+
+.pageTitle {
+	font-family: "Ubuntu";
+	font-weight: 600;
+	font-size: 22px;
+	letter-spacing: 1.5px;	
+}
+
+.searchResultsContainer{
+	text-align: center;
+}
+
+.searchResultsContainer li {
+	display: inline-block;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.searchResult button {
+	background-color: #4dbd90;
+	font-size: 17px;
+	width: 24em;
+	height: 2.3em;
+	display: inline-block;
+	color: white;
+	border: none;
+}
+
+.searchResult button:hover {
+	background-color: #5aca9d;
+	cursor: pointer;
+}
+
+/* CSS for user page */
+
+.userContainer i {
+	margin-left: -20px;
+}
+
+.userContainer i:hover {
+	cursor: pointer;
+}
+
+.userContainer h2 {
+	font-family: 'Tahoma';
+	font-weight: 500;
+	font-size: 18px;
+}
+
+.userContainer button {
+	background-color: #4dbd90;
+	font-size: 15px;
+	font-family: 'Tahoma';
+	width: 11.5em;
+	height: 2em;
+	display: inline-block;
+	color: white;
+	border: none;	
+}
+
+.userContainer button:hover {
+	background-color: #5aca9d;
+	cursor: pointer;
+}
+
+/* end of all user.css code */

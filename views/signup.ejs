@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<%- include ("partials/frontEndHead") %>
+  </head>
+  <body>
+    <script src="script.js"></script>
+
+		<%- include ("partials/frontEndBanner") %>
+    
+    <div class="aboutSync">
+      <div class="loginContainer">
+        <h1>Signup</h1>
+        <br>
+        <div class="loginform">
+          <form action="/signup" method="post">
+            Email:<br>
+            <input type="email" name="email" placeholder="Enter Email" class="signup_input" required><br>
+            Username:<br>
+            <input type="text" name="username" placeholder="Enter Username" class="signup_input" required><br>
+            Password:<br>
+            <input type="password" name="password" id="password" placeholder="Enter Password" class="signup_input" required><span><i class="fas fa-eye" id="togglePassword"></i></span><br>
+            <button type="submit" class="submitButton" required>Signup</button>
+          </form>
+        </div> 
+        <p>Don't have an account? <a href="/login">Login</a></p>
+          
+				<br>
+				<p style="color:red;"><%= error %></p>
+      </div>
+    </div>
+
+    <footer>   
+			<%- include ("partials/frontEndFooter") %>
+    </footer>
+
+    </div> 
+        
+
+  </body>
+
+	<script>
+		const togglePassword = document.querySelector('#togglePassword');
+		const password = document.querySelector('#password');
+
+		togglePassword.addEventListener('click', function (e) {
+			// toggle the type attribute
+			const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+			password.setAttribute('type', type);
+			// toggle the eye slash icon
+			this.classList.toggle('fa-eye-slash');
+		});
+
+	</script>
+
+</html>

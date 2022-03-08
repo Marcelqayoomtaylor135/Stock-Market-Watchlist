@@ -1,0 +1,208 @@
+<html>
+  <head>
+
+		<%- include ("partials/dashboardHead") %>
+
+		<script>
+
+			function setChange (priceList){
+				var changeElement = document.getElementsByName("change2");
+				var publishedItems = [];
+				console.log("price list sent is: " + priceList);
+				for( var i = 0; i < priceList.length; i++){ 
+					word = priceList[i];
+					for (var e = 0; e < word.toString().length; e++) {
+						if (word.toString()[e] == "."){
+							var decimal = e;
+							console.log("FOUND DECIMAL: " + e + "th position")
+						}
+					}
+					var changeShort = priceList[i].toString().slice(0,(decimal+3));
+					console.log("Change is: " + changeShort);
+					publishedItems.push(changeShort.toString())
+				}
+
+				for (var a = 0; a < changeElement.length; a++) {
+					if (publishedItems[a][0] == "-"){
+						changeElement[a].style.color = "red";
+					} else {
+						changeElement[a].style.color = "green";
+					}
+					changeElement[a].innerHTML = publishedItems[a] + "%";
+				}
+		}
+
+		</script>
+  </head>
+  <body>
+
+		<%- include ("partials/dashboardMenu") %>
+
+	
+		<div class="main_container">
+			<div class="listContainer">
+
+				<div class="watchlist">
+
+					<table class="watchlistTable">
+						<thead>
+							<tr>
+								<th class="watchlistTitle" colspan="5"><h2>Watchlist</h2><div class="tooltip"><i class="far fa-question-circle" id="tooltip"></i><h4 class="tooltipText">The watchlist is your personal list to add and keep track of your favourite companies!</h4></div></th>
+							</tr>
+							<tr>
+								<th>Symbol</th>
+								<th>Name</th>
+								<th>Price</th>
+								<th>Change</th>
+								<th>Remove</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for( var i = 0; i < stockNames.length; i++){ %>
+										<tr>
+			
+											<td class="listItem"><%= stockCodes[i] %>
+											</td>
+											<form method="post" action="/stockWatchlist/<%= stockCodes[i] %>">
+												<td class="listItem">
+													<button type="submit"> <%= stockNames[i] %> 
+												</td>
+											</form>
+											<td class="listItem"><p name="price"></p></td>
+											<td class="listItem"><p name="change"></p></td>
+											<td>	
+												<form method="post" action="/removeStock/<%= stockCodes[i] %>">
+													<button type="submit" class="removeButton" ><i id="listIcon" class="fa fa-trash-o" aria-hidden="true"></i></button>
+												</form>	
+											</td>
+											
+										</tr>
+								</form>
+							<% } %>
+
+							<tr>
+								<form action="/companySearch" method="post">
+									<td colspan="4">										
+										<input class="addTextBox" type="text" name="companyInput" placeholder="Stock Name or Symbol">
+									</td>
+									<td>
+										<button class="addSubmitBtn" type="submit">Add New</button>
+									</td>
+								</form> 
+							</tr> 
+							<p style="color:red;"><%= error%></p>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="recommendedStocks">
+					<script>var changeList2 = [];</script>
+					<table class="recommendedStocksTable">
+						<thead>
+							<tr>
+								<th class="watchlistTitle" colspan="5"><h2>Recommended Stocks</h2><div class="tooltip"><i class="far fa-question-circle" id="tooltip"></i><h4 class="tooltipText">These companies are highly recommended to add to your watchlist due to significant movements in their price!</h4></div></th>
+							</tr>
+							<tr>
+								<th>Symbol</th>
+								<th>Name</th>
+								<th>Price</th>
+								<th>Change</th>
+								<th>Add</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<% for( var i = 0; i < stonks.length; i++){ %>
+								<script>changeList2.push(<%= stonks[i].regularMarketChange.toString() %>); console.log("sending: " + changeList2);</script>
+
+								<tr class="parent">
+
+										<td><%= stonks[i].symbol %></td>
+										<form method="post" action="/stockWatchlist/<%= stonks[i].symbol %>">
+											<td>
+												<button type="submit"> <%= stonks[i].shortName %> </button> 
+											</td>
+										</form>
+										<td><%= stonks[i].regularMarketPrice %></td>
+										<td><p name="change2"><%= stonks[i].regularMarketChange.toString() %></p></td>
+
+										<form action="/addStock/<%= stonks[i].symbol %>" method="post">
+											<td><button type="submit"><i id="listIcon" class="fa fa-plus-square-o" aria-hidden="true"></i></button></td>	
+										</form>
+									
+								</tr>
+							<% } %> 
+
+							<script>setChange(changeList2)</script>
+							
+						</tbody>
+					</table>
+				</div>				
+
+			</div>
+	
+		</div> 
+
+	</div> <!-- dashboardMenu final div (wrapper) -->
+
+  </body>
+
+<script>
+
+<%- include ("partials/frontEndJS") %>
+
+var priceList = [];
+var changeList = [];
+
+var priceElement = document.getElementsByName("price");
+var changeElement = document.getElementsByName("change");
+
+var settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-spark?interval=1d&range=1d&symbols=<%= stockCodes %>",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+		"x-rapidapi-key": "0a847f1d00msh69cb4807c6bb658p1cbc84jsn7805244c30b5"
+	}
+}
+
+$.ajax(settings).done(function (response) {
+	
+	<% for( var i = 0; i < stockCodes.length; i++){ %>
+
+		var previous = response[<%- JSON.stringify(stockCodes[i]) %>]["chartPreviousClose"];
+		var current = response[<%- JSON.stringify(stockCodes[i]) %>]["close"][0];
+		var change = (((current-previous)/previous) * 100).toString()
+		
+		for (var a = 0; a < change.length; a++){
+			if (change[a] == "."){
+				var decimal = a;
+			}
+		}
+
+		var changeShort = change.slice(0,(decimal+3))
+
+		priceList.push(response[<%- JSON.stringify(stockCodes[i]) %>]["close"][0]);
+		changeList.push(changeShort)
+	
+	<% } %> 
+
+	for (var a = 0; a < priceElement.length; a++){
+		priceElement[a].innerHTML = priceList[a];
+		if (changeList[a][0] == "-"){
+			changeElement[a].style.color = "red";
+		} else {
+			changeElement[a].style.color = "green";
+		}
+		changeElement[a].innerHTML = changeList[a] + "%";
+	}
+
+});
+
+</script>
+
+</html>
+
+

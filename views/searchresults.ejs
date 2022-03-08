@@ -1,0 +1,39 @@
+<html>
+  <head>
+ 		<%- include ("partials/dashboardHead") %>
+
+
+  </head>
+  <body>
+
+	<%- include ("partials/dashboardMenu") %>
+
+	<div class="main_container">
+		<div class="item">
+				<div class="itemBanner">
+				<h3 class="pageTitle">Search Results:</h3> 
+				<p style="color:red;"><%= error %></p>
+			</div>
+			<h3></h3>
+			<br><br>
+
+			<div class="searchResultsContainer">
+				<% for( var i = 0; i < searchResults.length; i++){ %>
+					<form method="post" action="/stockWatchlist/<%= testSymbol[i] %>">
+						<li class="searchResult"><button type="submit"><%= searchResults[i] %></button></li>
+
+						<input type="hidden" name="testSymbol" value="<%= testSymbol[i] %>"/>
+					</form>
+				<% } %> 
+			</div>
+		</div>
+		
+	</div> <!-- dashboardMenu final div (wrapper) -->
+
+  </body>
+
+	<script>
+		<%- include ("partials/frontEndJS") %>
+	</script>
+
+</html>

@@ -1,0 +1,55 @@
+<!-- The code for the menu and sidebar -->
+
+<div class="wrapper">
+	<div class="top_navbar">
+		<div class="hamburger">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="top_menu">
+			<div class="logo2">MarketWatch</div>
+			<div class="search_bar">
+					<form action="companySearch" method="post">
+						<input class="search_text" type="text" name="companyInput" placeholder="Search a company" class="company-input">
+					<button type="submit" class="search_button"><i class="fas fa-search"></i></button>
+					
+				</form>
+			</div>
+			<ul>
+				<li><a href="/user"><i class="fas fa-user"></i></a></li>
+				<li><a href="/settings"><i class="fas fa-cog"></i></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="sidebar">
+		<ul>
+			<li><a href="/watchlist" >
+				<span class="icon"><i class="fas fa-bookmark"></i></span>
+				<span class="title">Watchlist</span>
+			</a></li>
+			<li><a href="/tutorial" >
+				<span class="icon"><i class="fas fa-question"></i></span>
+				<span class="title">Tutorial</span>
+			</a></li>
+			<li><a href="/settings" >
+				<span class="icon"><i class="fas fa-cog"></i></span>
+				<span class="title">Settings</span>
+			</a></li>
+			<li><a href="/premium" >
+				<span class="icon"><i class="fas fa-star"></i></span>
+				<span class="title">Premium</span>
+			</a></li>
+			<li class="logout_box">
+				<form action="/logout" method="post">
+					<button class="logout_button" type="submit">
+							<span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+							<span class="title">Logout</span>
+					</button>	
+				</form>
+			</li>
+		</ul>
+	</div>
+
+<!-- left out a /div as the content falls within wrapper div-->

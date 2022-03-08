@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<%- include ("partials/frontEndHead") %>
+  </head>
+  <body>
+    <script src="script.js"></script>
+
+		<%- include ("partials/frontEndBanner") %>
+    
+    <div class="slideshow">
+        <div class="row">
+            <div class="column1">
+              <h1>Learn Everything You Need To Know About Investing</h1>
+              <h3> MarketWatch is an educational investment platform that allows users to learn, track and get notified about publicly listed companies </h3>
+              <div class="colButtons">
+                <button onclick="window.location.href = '/signup';"type="button" class="colSignUp">Sign Up</button>
+                <button onclick="window.location.href = '/about';" type="button" class="colLearnMore">Learn More</button>
+              </div>
+            </div>
+            <div class="column2">
+              <img src="images/new2.JPG"></img>
+            </div>
+        </div>
+    </div>
+
+    <div class="sync">
+      <div class="container">
+        <h1>Sync Across All Devices</h1>
+        <h3> The perfect platform to learn to become educated about trading </h3>
+        <div class="syncRow1">
+            <div class="syncCol1">
+              <img src="images/new1.JPG"></img>
+            </div>
+            <div class="syncCol2">
+              <img src="images/4.png"></img>
+              <h3>Web Application</h3>
+              <p>The MarketWatch web application allows users to track, get notified and learn the stock market easily amongst their browser</p>
+            </div>
+        </div>
+        <div class="syncRow2">
+            <div class="syncCol3">
+              <h3>Mobile Application (Coming Soon!)</h3>
+              <p>The MarketWatch accompanying mobile application allows users recieve instant push notifications as soon as their trades have reached set limits</p>
+            </div>
+            <div class="syncCol4">
+              <img src="images/new2.JPG"></img>
+            </div>
+        </div>
+      </div>
+<a name="pricing-anchor-point"></a> 
+    <div class="pricing">
+      <div class="pricingcontainer">
+        <h1>Plans & Pricing</h1>
+        <h3>No credit card required. No risk, 30-day money back guarantee!</h3>
+        <div class="pricingcolumns">
+          <div class="columncontainer">
+            <div class="planwrapper">
+              <h3>Beginner</h3>
+              <h4>$0/Month</h4>
+              <hr>
+              <p>Company watch list</p>
+              <p>Get push notifications</p>
+              <p><del>Email support</p>
+              <p><del>Access to tutorials</p>
+              <p><del>Personal lessons</p>
+              <button type="button" class="planwrapperbutton">Choose Plan</button>
+              </div>
+          </div>
+          <div class="columncontainer">
+            <div class="planwrapper">
+              <h3>Novice</h3>
+              <h4>$5/Month</h4>
+              <hr>
+              <p>Company watch list</p>
+              <p>Get push notifications</p>
+              <p>Email support</p>
+              <p><del>Access to tutorials</p>
+              <p><del>Personal lessons</p>
+              <button type="button" class="planwrapperbutton">Choose Plan</button>
+              </div>
+          </div>
+          <div class="columncontainer">
+            <div class="planwrapper">
+              <h3>Advanced</h3>
+              <h4>$10/Month</h4>
+              <hr>
+              <p>Company watch list</p>
+              <p>Get push notifications</p>
+              <p>Email support</p>
+              <p>Access to tutorials</p>
+              <p><del>Personal lessons</p>
+              <button type="button" class="planwrapperbutton">Choose Plan</button>
+              </div>
+          </div>
+          <div class="columncontainer">
+            <div class="planwrapper">
+              <h3>Expert</h3>
+              <h4>$20/Month</h4>
+              <hr>
+              <p>Company watch list</p>
+              <p>Get push notifications</p>
+              <p>Email support</p>
+              <p>Access to tutorials</p>
+              <p>Personal lessons</p>
+              <button type="button" class="planwrapperbutton">Choose Plan</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <footer>   
+			<%- include ("partials/frontEndFooter") %>
+    </footer>
+
+    </div> 
+
+  </body>
+</html>
