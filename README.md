@@ -8,7 +8,7 @@ Market Watch is a web application that serves as a advanced watchlist for the st
 
 ## Technical Details
 
-To build the app I used **Express JS, Node JS, EJS and CSS**. 
+To build the app, I used **Express JS, Node JS, EJS and CSS**. 
 
 To get the latest financial data, I sourced my APIs from Yahoo Finance.
 
