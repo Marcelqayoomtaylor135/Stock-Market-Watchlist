@@ -8,7 +8,8 @@ Market Watch is a web application that serves as a advanced watchlist for the st
 
 ## Demo
 
-Uploading MarketwatchTutorial.mp4…
+https://user-images.githubusercontent.com/48072798/214775988-9e974a16-82b6-48d3-9846-c0708eed3a75.mp4
+
 
 ## Screenshots
 
