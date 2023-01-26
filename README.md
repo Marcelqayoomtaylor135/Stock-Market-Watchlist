@@ -6,6 +6,14 @@ Hi!
 
 Market Watch is a web application that serves as a advanced watchlist for the stock market. Once making an account, you can see expert recommended stocks, add any stock (international included) to your watchlist, and view technical graphs to monitor their performance over time.
 
+## Demo
+
+Uploading MarketwatchTutorial.mp4…
+
+## Screenshots
+
+![Screenshot 2022-03-08 202810](https://user-images.githubusercontent.com/48072798/214774380-39ce3459-19b9-4aee-8d80-694f509e4acd.png)
+
 ## Technical Details
 
 To build the app, I used **Express JS, Node JS, EJS and CSS**. 
