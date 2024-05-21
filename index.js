@@ -12,7 +12,7 @@ var async = require("async");
 const db = "mongodb+srv://Marcel:Marcel@cluster0-hlbs5.mongodb.net/userdatabase?retryWrites=true&w=majority";
 var path = require('path'); // Functions for grabbing files/folders
 const request = require('request'); // Allows you to make API requests
-const apiKey = 'GV8VTHLJ4D7ZVQCV'; // API KEY
+const apiKey = ''; // API KEY
 const app = express(); // Start using express library functions to make an application called "app"
 const bcrypt = require('bcrypt');
 let SALT = 10; // Global variable for the amount of characters of the cryptography   
